@@ -55,6 +55,18 @@ class App {
         return activity;
     }
 
+    static randomPrompt() {
+        const prompts = [
+            'You could',
+            'Why not',
+            'Maybe'
+        ];
+
+        const randIndex = Math.floor(Math.random() * prompts.length);
+
+        return prompts[randIndex];
+    }
+
     static async getData(route) {
         const res = await fetch(route);
         const data = await res.json();
@@ -86,7 +98,7 @@ async function init() {
 
         if (checked.length) {
             const activity = app.chooseActivity(checked);
-            msg.innerText = `You could ${activity}`;
+            msg.innerText = `${App.randomPrompt()} ${activity}`;
         }
     });
 }
