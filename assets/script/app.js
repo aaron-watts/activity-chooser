@@ -3,6 +3,7 @@
 class App {
     constructor(data) {
         this.data = data;
+        this.dataSlice = {};
         this.durations = [
             ...new Set(this.data.adventures.map(i => i.howMuch))
         ];
@@ -11,7 +12,10 @@ class App {
             this[duration] = this.data.adventures
                 .filter(i => i.howMuch == duration)
                 .map(i => i.what);
+
+            this.dataSlice[duration] = this[duration].slice();
         }
+
     }
 
     checkBox(duration) {
@@ -30,15 +34,25 @@ class App {
     }
 
     chooseActivity(options) {
-        let randomOption = 0;
+        let durationIndex = 0;
         if (options.length > 1) {
-            randomOption = Math.floor(Math.random() * options.length);
+            durationIndex = Math.floor(Math.random() * options.length);
         }
 
-        let option = this[options[randomOption]];
-        let randomActivity = Math.floor(Math.random() * option.length)
+        const duration = options[durationIndex];
+        const activityIndex = Math.floor(Math.random() * this.dataSlice[duration].length)
 
-        return this[options[randomOption]][randomActivity];
+        return this.getActivity(duration, activityIndex);
+    }
+
+    getActivity(duration, index) {
+        const activity = this.dataSlice[duration].splice(index, 1);
+
+        if (this.dataSlice[duration].length < 1) {
+            this.dataSlice[duration] = this[duration].slice();
+        }
+
+        return activity;
     }
 
     static async getData(route) {
