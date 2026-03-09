@@ -40,6 +40,12 @@ class App {
 
         return this[options[randomOption]][randomActivity];
     }
+
+    static async getData(route) {
+        const res = await fetch(route);
+        const data = await res.json();
+        return data;
+    }
 }
 
 document.addEventListener('DOMContentLoaded', init);
@@ -49,7 +55,7 @@ async function init() {
     const fieldset = form.duration;
     const msg = document.querySelector('#msg');
 
-    const data = await getData();
+    const data = await App.getData('.netlify/functions/api');
     const app = new App(data);
 
     msg.innerText = "Choose the duration of the activity you would like to do...";
@@ -71,8 +77,3 @@ async function init() {
     });
 }
 
-async function getData() {
-    const res = await fetch('.netlify/functions/api');
-    const data = await res.json();
-    return data;
-}
