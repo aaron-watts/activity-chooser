@@ -46,13 +46,17 @@ class App {
     }
 
     getActivity(duration, index) {
-        const activity = this.dataSlice[duration].splice(index, 1);
+        const activity = this.dataSlice[duration].splice(index, 1)[0];
 
         if (this.dataSlice[duration].length < 1) {
             this.dataSlice[duration] = this[duration].slice();
         }
 
-        return activity;
+        return this.lowerCaseZeroth(activity);
+    }
+
+    lowerCaseZeroth(str) {
+        return str[0].toLowerCase() + str.slice(1);
     }
 
     static randomPrompt() {
