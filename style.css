@@ -103,16 +103,24 @@
 
   @media (max-width: 768px) {
     body {
-        background-image: url("images/background\ pictures\ -\ mobile.png");
+        background-image: url("images/background\ pics\ bottom.png");
      }
 
     h1 {
         font-size: 4rem;
+        background-color: rgba(252, 249, 247, 0.1);
+        backdrop-filter: blur(1px);            
+        border-radius: 5px;
+        padding: 1.2rem;
     }
 
     p {
         font-size: .8rem;
         font-weight: 400;
+    }
+
+    .wrapper {
+        background-image: url("images/background\ pics\ top.png");
     }
 
     .subheading {
@@ -132,7 +140,10 @@
     }
 
     .form, #msg {
-        background-color: rgba(252, 249, 247, 0.8);
+        background-color: rgba(252, 249, 247, 0.1);
+        backdrop-filter: blur(1px);            
+        border-radius: 5px;
+        padding: 1.2rem;
     }
   }
   
