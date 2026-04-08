@@ -1,3 +1,13 @@
+@font-face {
+    font-family: 'Caveat Brush';
+    src: url('/assets/fonts/CaveatBrush-Regular.woff2');
+  }
+
+@font-face {
+    font-family: 'Sixtyfour';
+    src: url('assets/fonts/Sixtyfour-Regular-VariableFont_BLED,SCAN.woff2');
+  }
+
 /* Reset */
 * {
     box-sizing: border-box;
