@@ -24,7 +24,7 @@
     color: #502E18;
     background: #FCF9F7;
     font-size: 16px;
-    background-image: url("images/desktop\ background\ pic.png");
+    background-image: url("images/desktop\ background\ pic.webp");
     background-size: cover;
     background-position: bottom;
     background-repeat: no-repeat;
@@ -113,7 +113,7 @@
 
   @media (max-width: 768px) {
     body {
-        background-image: url("images/background\ pics\ bottom.png");
+        background-image: url("images/background\ pics\ bottom.webp");
      }
 
     h1 {
@@ -130,7 +130,7 @@
     }
 
     .wrapper {
-        background-image: url("images/background\ pics\ top.png");
+        background-image: url("images/background\ pics\ top.webp");
     }
 
     .subheading {
